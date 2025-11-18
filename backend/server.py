@@ -367,6 +367,9 @@ async def add_weight(entry: WeightEntry):
     
     await db.weight_entries.insert_one(weight_data)
     
+    # Remove MongoDB _id field for JSON serialization
+    weight_data.pop('_id', None)
+    
     return {
         "success": True,
         "entry": weight_data
