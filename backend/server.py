@@ -319,6 +319,9 @@ async def add_meal(meal: Meal):
     
     await db.meals.insert_one(meal_data)
     
+    # Remove MongoDB _id field for JSON serialization
+    meal_data.pop('_id', None)
+    
     return {
         "success": True,
         "meal": meal_data
