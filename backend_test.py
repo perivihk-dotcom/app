@@ -87,10 +87,8 @@ class FitGeniusAPITester:
         """Test user login endpoint"""
         try:
             # Use the same email from signup
-            import time
-            timestamp = int(time.time())
             login_data = {
-                "email": f"sarah.johnson.{timestamp}@fitgenius.com",
+                "email": self.test_email,
                 "password": "FitLife2025!"
             }
             
