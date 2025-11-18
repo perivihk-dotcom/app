@@ -277,6 +277,9 @@ async def generate_ai_workout(request: AIWorkoutRequest):
             "completed": False
         })
         
+        # Remove MongoDB _id field for JSON serialization
+        workout_plan.pop('_id', None)
+        
         return {
             "success": True,
             "workout": workout_plan
