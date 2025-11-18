@@ -22,6 +22,10 @@ class FitGeniusAPITester:
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         })
+        # Generate unique email for this test run
+        import time
+        timestamp = int(time.time())
+        self.test_email = f"sarah.johnson.{timestamp}@fitgenius.com"
     
     def log_test(self, test_name, success, details="", response_data=None):
         """Log test results"""
