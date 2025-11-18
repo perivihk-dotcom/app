@@ -53,10 +53,12 @@ class FitGeniusAPITester:
     def test_user_signup(self):
         """Test user signup endpoint"""
         try:
-            # Use realistic test data
+            # Use realistic test data with timestamp to avoid conflicts
+            import time
+            timestamp = int(time.time())
             signup_data = {
                 "name": "Sarah Johnson",
-                "email": "sarah.johnson@fitgenius.com",
+                "email": f"sarah.johnson.{timestamp}@fitgenius.com",
                 "password": "FitLife2025!"
             }
             
